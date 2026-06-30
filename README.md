@@ -1,32 +1,41 @@
 # 告别凭感觉打牌：德州扑克新手系统入门课
 
-本项目是一本德州扑克新手入门课程书稿的 LaTeX 工程骨架。当前版本用于搭建书稿结构、章节拆分、编译配置和占位内容，后续可在各章节文件中逐步扩展完整正文。
+本项目是一本德州扑克新手入门课程的 LaTeX 书稿工程。全书共 9 章，从翻前到河牌完整覆盖单手牌处理流程，并进一步讲解牌力分类、下注目的、激进策略与弃牌纪律，帮助读者建立可复盘的决策框架。
+
+**在线仓库：** [github.com/AlexNing98/poker-course-latex](https://github.com/AlexNing98/poker-course-latex)
+
+## 全书结构
+
+| 章 | 文件 | 主题 | 核心框架 |
+|---|------|------|----------|
+| 1 | `chapter01_excellent_player.tex` | 如何成为优秀的牌手 | 状态管理、决策质量、复盘习惯 |
+| 2 | `chapter02_preflop.tex` | 翻前 | 翻前四问 |
+| 3 | `chapter03_flop.tex` | 翻牌 | 翻牌圈五步思考 |
+| 4 | `chapter04_turn.tex` | 转牌 | 转牌三类出张 |
+| 5 | `chapter05_river.tex` | 河牌 | 河牌决策三问 |
+| 6 | `chapter06_hand_strength_framework.tex` | 不同牌力的处理框架 | 牌力功能表 |
+| 7 | `chapter07_purpose_of_betting.tex` | 下注的目的 | 下注前必问 |
+| 8 | `chapter08_aggressive_game.tex` | 激进的游戏 | 有效激进三条件 |
+| 9 | `chapter09_fold_and_call.tex` | 弃牌与跟注 | 跟注四问 |
+
+每章统一包含：本章导入、核心概念、新手常见误区、实战思考框架、牌例拆解、本章总结、课后训练。
 
 ## 文件结构
 
 ```text
 .
-├── main.tex
-├── preamble.tex
-├── references.bib
-├── chapters/
-│   ├── chapter01_excellent_player.tex
-│   ├── chapter02_preflop.tex
-│   ├── chapter03_flop.tex
-│   ├── chapter04_turn.tex
-│   ├── chapter05_river.tex
-│   ├── chapter06_hand_strength_framework.tex
-│   ├── chapter07_purpose_of_betting.tex
-│   ├── chapter08_aggressive_game.tex
-│   └── chapter09_fold_and_call.tex
-├── figures/
-├── tables/
+├── main.tex              # 主文档
+├── preamble.tex          # 宏包与样式
+├── references.bib        # 参考文献
+├── chapters/             # 九章正文
+├── figures/              # 图片目录
+├── tables/               # 表格目录
 └── README.md
 ```
 
-## 推荐编译方式
+## 编译方式
 
-本项目使用 `ctexbook` 文档类，推荐使用 XeLaTeX 编译。由于参考文献使用 `biblatex` 和 `biber`，完整编译流程为：
+本项目使用 `ctexbook` 文档类，推荐 **XeLaTeX + Biber** 编译。完整流程：
 
 ```bash
 xelatex main.tex
@@ -35,64 +44,56 @@ xelatex main.tex
 xelatex main.tex
 ```
 
-如果使用 TeXstudio、VS Code LaTeX Workshop 或 Overleaf，请将主文件设置为 `main.tex`，编译引擎设置为 XeLaTeX，参考文献后端设置为 Biber。
+在 TeXstudio、VS Code LaTeX Workshop 或 Overleaf 中，请将主文件设为 `main.tex`，编译引擎设为 XeLaTeX，参考文献后端设为 Biber。
+
+编译成功后生成 `main.pdf`（当前完整版约 **153 页**）。若 `main.pdf` 被阅读器占用导致无法覆盖，可使用 `-jobname=main_build` 输出到 `main_build.pdf`：
+
+```bash
+xelatex -jobname=main_build main.tex
+biber main_build
+xelatex -jobname=main_build main.tex
+xelatex -jobname=main_build main.tex
+```
 
 ## 如何新增章节
 
-1. 在 `chapters/` 目录中新建章节文件，例如 `chapter10_review_system.tex`。
-2. 在新文件中使用 `\chapter{章节标题}` 开始章节。
+1. 在 `chapters/` 中新建文件，例如 `chapter10_review_system.tex`。
+2. 以 `\chapter{章节标题}` 开始。
 3. 在 `main.tex` 中按顺序加入：
 
 ```latex
 \include{chapters/chapter10_review_system}
 ```
 
-建议新章节继续沿用当前结构：
-
-```latex
-\section{本章导入}
-\section{核心概念}
-\section{新手常见误区}
-\section{实战思考框架}
-\section{牌例拆解}
-\section{本章总结}
-\section{课后训练}
-```
+建议沿用现有章节结构（导入 → 核心概念 → 误区 → 框架 → 牌例 → 总结 → 训练）。
 
 ## 如何插入图片和表格
 
-图片建议放入 `figures/` 目录，在正文中使用：
+图片放入 `figures/`，正文引用：
 
 ```latex
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.8\textwidth]{example-image}
+  \includegraphics[width=0.8\textwidth]{figures/example}
   \caption{图片说明}
   \label{fig:example}
 \end{figure}
 ```
 
-表格可以直接写在章节文件中，也可以将较大的表格拆到 `tables/` 目录后用 `\input{}` 引入：
+较大表格可放入 `tables/` 后用 `\input{}` 引入。项目已加载 `booktabs`，推荐使用 `\toprule`、`\midrule`、`\bottomrule`。
 
-```latex
-\begin{table}[htbp]
-  \centering
-  \caption{起手牌范围示例}
-  \label{tab:preflop-range}
-  \begin{tabular}{lll}
-    \toprule
-    位置 & 建议动作 & 示例手牌 \\
-    \midrule
-    BTN & Open raise & AA--22, AKs--A2s \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-```
+手牌与牌面建议使用 `\texttt{}` 排版，例如 `\texttt{AKo}`、`\texttt{A72 rainbow}`。
 
-## 后续写作建议
+## 写作与排版约定
 
-- 每章先补充核心概念，再补牌例，最后整理课后训练。
-- 术语首次出现时建议使用“中文解释 + 英文术语”的形式，例如“起手牌范围（range）”。
-- 避免用单手牌输赢评价策略，应强调决策质量、长期期望值（EV）和风险管理。
-- 每个牌例建议固定记录位置、有效筹码、翻前行动、公共牌、下注尺度、对手类型和复盘结论。
-- 后续可增加术语表、牌例索引、训练题答案和常见错误清单。
+- 术语首次出现建议使用「中文解释 + 英文术语」，例如「起手牌范围（range）」。
+- 牌例建议记录：位置、有效筹码、翻前行动、公共牌、下注尺度、对手类型与复盘结论。
+- 强调决策质量与长期 EV，避免用单手牌输赢评价策略。
+- `center` 环境内换行使用 `\\`，百分号写作 `\%`，数学公式使用 `\[...\]` 或 `$...$`。
+
+## 后续可扩展内容
+
+- 术语表与牌例索引
+- 课后训练参考答案
+- 常见错误清单速查
+- 附录：位置图、起手牌范围参考表

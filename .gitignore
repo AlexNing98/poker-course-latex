@@ -22,6 +22,7 @@
 
 # Generated PDFs
 main.pdf
+main_build.pdf
 
 # Build folders
 build/
