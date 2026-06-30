@@ -1,0 +1,53 @@
+\documentclass[UTF8,openany,zihao=-4]{ctexbook}
+
+\input{preamble.tex}
+
+\title{告别凭感觉打牌：德州扑克新手系统入门课}
+\author{作者待定}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  {\zihao{1}\bfseries 告别凭感觉打牌\par}
+  \vspace{0.8cm}
+  {\zihao{2}\bfseries 德州扑克新手系统入门课\par}
+  \vspace{1.5cm}
+  {\zihao{4} 从直觉决策到框架化思考\par}
+  \vfill
+  {\zihao{4} 作者待定\par}
+  \vspace{0.5cm}
+  {\zihao{4}\today\par}
+\end{titlepage}
+
+\chapter*{前言}
+\addcontentsline{toc}{chapter}{前言}
+
+德州扑克不是单纯依靠感觉的游戏，而是一项综合概率、逻辑、心理控制和风险管理的竞技决策活动。初学者最容易遇到的问题，是在每一条街都看似有选择，却缺少判断依据；赢牌时不知道为什么赢，输牌时也难以复盘真正的错误。
+
+本书希望帮助读者建立一套清晰的新手入门框架：从翻前到河牌，理解一手牌的完整处理流程；从牌力分类到下注目的，理解每一个动作背后的逻辑；从激进进攻到弃牌纪律，逐步摆脱“凭感觉打牌”的习惯。当前版本为书稿工程框架，正文内容将在后续写作中逐章扩展。
+
+\tableofcontents
+
+\mainmatter
+
+\include{chapters/chapter01_excellent_player}
+\include{chapters/chapter02_preflop}
+\include{chapters/chapter03_flop}
+\include{chapters/chapter04_turn}
+\include{chapters/chapter05_river}
+\include{chapters/chapter06_hand_strength_framework}
+\include{chapters/chapter07_purpose_of_betting}
+\include{chapters/chapter08_aggressive_game}
+\include{chapters/chapter09_fold_and_call}
+
+\backmatter
+
+\nocite{*}
+\printbibliography[heading=bibintoc,title={参考文献}]
+
+\end{document}

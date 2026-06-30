@@ -1,0 +1,40 @@
+% Basic page layout
+\usepackage[a4paper,margin=2.6cm,headheight=15pt]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% Figures and tables
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Lists, colors, and links
+\usepackage{xcolor}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=2em}
+\usepackage{csquotes}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+
+% Headings and running headers
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{第\,\thechapter\,章}{1em}{}
+\titlespacing*{\chapter}{0pt}{-0.5em}{1.5em}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+
+% Bibliography
+\usepackage[backend=biber,style=numeric,sorting=nyt]{biblatex}
+\addbibresource{references.bib}
+
+% Small teaching helpers for later drafting
+\newcommand{\term}[2]{#1（\textit{#2}）}
+\newcommand{\todoitem}[1]{\textcolor{red!70!black}{[待补充：#1]}}
