@@ -49,13 +49,13 @@ Outs 可以理解为：牌堆中还没有发出的牌里，哪些牌能让你的
 例如你手里是：
 
 \begin{center}
-\texttt{A♠ 7♠}
+\texttt{As 7s}
 \end{center}
 
 翻牌是：
 
 \begin{center}
-\texttt{K♠ 9♠ 2♦}
+\texttt{Ks 9s 2d}
 \end{center}
 
 你现在有同花听牌。只要转牌或河牌再来一张黑桃，你就能组成同花。
@@ -63,7 +63,7 @@ Outs 可以理解为：牌堆中还没有发出的牌里，哪些牌能让你的
 一副牌中每种花色有 13 张牌。你已经看到 4 张黑桃：
 
 \begin{center}
-\texttt{A♠、7♠、K♠、9♠}
+\texttt{As、7s、Ks、9s}
 \end{center}
 
 所以还剩：
@@ -83,13 +83,13 @@ Outs 可以理解为：牌堆中还没有发出的牌里，哪些牌能让你的
 再看一个顺子听牌的例子。你手里是：
 
 \begin{center}
-\texttt{9♣ 8♣}
+\texttt{9c 8c}
 \end{center}
 
 翻牌是：
 
 \begin{center}
-\texttt{7♦ 6♠ K♥}
+\texttt{7d 6s Kh}
 \end{center}
 
 现在只要转牌或河牌出现 \texttt{5} 或 \texttt{T}，你就能组成顺子。一副牌中有 4 张 5 和 4 张 T，因此你一共有：
@@ -146,30 +146,30 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 例如你手里是：
 
 \begin{center}
-\texttt{A♠ 7♠}
+\texttt{As 7s}
 \end{center}
 
 翻牌是：
 
 \begin{center}
-\texttt{K♠ 9♠ 2♦}
+\texttt{Ks 9s 2d}
 \end{center}
 
-你追的是 A 高同花。如果后面来黑桃，你大概率能组成很强的同花。因为你手中有 \texttt{A♠}，你的同花是坚果同花。这类 outs 比较干净。
+你追的是 A 高同花。如果后面来黑桃，你大概率能组成很强的同花。因为你手中有 \texttt{As}，你的同花是坚果同花。这类 outs 比较干净。
 
 但如果你手里是：
 
 \begin{center}
-\texttt{8♠ 7♠}
+\texttt{8s 7s}
 \end{center}
 
 翻牌是：
 
 \begin{center}
-\texttt{K♠ Q♠ 2♦}
+\texttt{Ks Qs 2d}
 \end{center}
 
-你同样有同花听牌，但即使后面来黑桃，你也只是 8 高同花。如果对手持有 \texttt{A♠J♠}、\texttt{A♠T♠}、\texttt{J♠T♠} 等更高同花，你完成同花后仍然可能输掉大底池。
+你同样有同花听牌，但即使后面来黑桃，你也只是 8 高同花。如果对手持有 \texttt{AsJs}、\texttt{AsTs}、\texttt{JsTs} 等更高同花，你完成同花后仍然可能输掉大底池。
 
 这就是不干净 outs。
 
@@ -398,13 +398,13 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 例如你持有：
 
 \begin{center}
-\texttt{A♣ 6♦}
+\texttt{Ac 6d}
 \end{center}
 
 翻牌为：
 
 \begin{center}
-\texttt{A♥ J♠ 8♣}
+\texttt{Ah Js 8c}
 \end{center}
 
 你击中了顶对，但踢脚很弱。如果对手范围中有很多 \texttt{AK}、\texttt{AQ}、\texttt{AJ}、\texttt{AT}，你虽然“中了 A”，却很容易输给更强 A。此时你的牌有很强的反向隐含赔率。
@@ -412,13 +412,13 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 再如你持有：
 
 \begin{center}
-\texttt{8♠ 7♠}
+\texttt{8s 7s}
 \end{center}
 
 牌面为：
 
 \begin{center}
-\texttt{K♠ Q♠ 2♦}
+\texttt{Ks Qs 2d}
 \end{center}
 
 你追同花，但即使完成，也可能输给更高同花。你看似有 9 个 outs，但这些 outs 并不完全干净。
@@ -625,7 +625,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 有效筹码 100BB。你在按钮位拿到：
 
 \begin{center}
-\texttt{A♠ 7♠}
+\texttt{As 7s}
 \end{center}
 
 你 open raise 到 2.5BB，大盲跟注。
@@ -633,7 +633,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 翻牌为：
 
 \begin{center}
-\texttt{K♠ 9♠ 2♦}
+\texttt{Ks 9s 2d}
 \end{center}
 
 大盲下注 1/2 底池，行动轮到你。
@@ -683,13 +683,13 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 有效筹码 100BB。你在按钮位拿到：
 
 \begin{center}
-\texttt{A♠ 7♠}
+\texttt{As 7s}
 \end{center}
 
 翻牌为：
 
 \begin{center}
-\texttt{K♠ 9♠ 2♦}
+\texttt{Ks 9s 2d}
 \end{center}
 
 翻牌你面对小注跟注。
@@ -697,7 +697,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 转牌为：
 
 \begin{center}
-\texttt{4♥}
+\texttt{4h}
 \end{center}
 
 大盲下注底池大小，行动轮到你。
@@ -749,7 +749,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 有效筹码 100BB。你在大盲拿到：
 
 \begin{center}
-\texttt{9♣ 8♣}
+\texttt{9c 8c}
 \end{center}
 
 按钮位 open raise 到 2.5BB，你跟注。
@@ -757,7 +757,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 翻牌为：
 
 \begin{center}
-\texttt{7♦ 6♠ K♥}
+\texttt{7d 6s Kh}
 \end{center}
 
 你过牌，按钮下注 1/3 底池。
@@ -805,7 +805,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 有效筹码 100BB。你在按钮位拿到：
 
 \begin{center}
-\texttt{Q♣ J♣}
+\texttt{Qc Jc}
 \end{center}
 
 你 open raise，大盲跟注。
@@ -813,7 +813,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 翻牌为：
 
 \begin{center}
-\texttt{A♦ K♠ 4♥}
+\texttt{Ad Ks 4h}
 \end{center}
 
 大盲过牌，你下注 1/3 底池，大盲 check-raise 到接近底池大小加注。
@@ -861,7 +861,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 有效筹码 150BB。你在按钮位拿到：
 
 \begin{center}
-\texttt{5♣ 5♦}
+\texttt{5c 5d}
 \end{center}
 
 前位玩家 open raise 到 3BB。你在按钮位行动。
@@ -903,7 +903,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 有效筹码 150BB。你在大盲拿到：
 
 \begin{center}
-\texttt{8♠ 6♠}
+\texttt{8s 6s}
 \end{center}
 
 按钮位 open raise，你跟注。
@@ -911,7 +911,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 翻牌为：
 
 \begin{center}
-\texttt{K♠ Q♠ 2♦}
+\texttt{Ks Qs 2d}
 \end{center}
 
 你过牌，按钮下注 2/3 底池。
@@ -932,7 +932,7 @@ Outs 的意义在于，它把“我还有机会”变成了更具体的数字。
 
 第一，表面 outs。你看似有 9 个黑桃 outs。
 
-第二，outs 质量。你追的是 8 高同花。如果按钮有 \texttt{A♠X♠}、\texttt{J♠T♠}、\texttt{T♠9♠} 等更高同花听牌，你完成同花后可能输大底池。
+第二，outs 质量。你追的是 8 高同花。如果按钮有 \texttt{AsXs}、\texttt{JsTs}、\texttt{Ts9s} 等更高同花听牌，你完成同花后可能输大底池。
 
 第三，位置问题。你在大盲无位置。即使转牌来黑桃，你也很难控制底池，并且对手如果强势下注，你会很尴尬。
 
