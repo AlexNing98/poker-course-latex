@@ -61,10 +61,10 @@ xelatex main.tex
 \hand{KQo}             % 抽象起手牌记法（无具体花色）
 ```
 
-`preamble.tex` 中定义：
+`preamble.tex` 中通过 `newunicodechar` 将 ♠♥♦♣ 映射到系统符号字体（优先 `Segoe UI Symbol`），确保 XeLaTeX 编译后 PDF 能正确显示花色：
 
 ```latex
-\newcommand{\hand}[1]{\textrm{#1}}
+\newcommand{\hand}[1]{{\normalfont #1}}
 ```
 
 批量转换脚本见 `scripts/convert_cards.py`（将字母花色记法转为 Unicode 格式）。

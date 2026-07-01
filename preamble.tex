@@ -37,6 +37,25 @@
 \addbibresource{references.bib}
 
 % Small teaching helpers for later drafting
-\newcommand{\hand}[1]{\textrm{#1}}
+% 手牌/牌面：Latin Modern 与微软雅黑均不含 ♠♣♦♥，需单独映射符号字体
+\IfFontExistsTF{Segoe UI Symbol}{%
+  \newfontfamily\SuitFont{Segoe UI Symbol}[Scale=0.92]
+}{%
+  \IfFontExistsTF{DejaVu Sans}{%
+    \newfontfamily\SuitFont{DejaVu Sans}[Scale=0.92]
+  }{%
+    \IfFontExistsTF{Arial Unicode MS}{%
+      \newfontfamily\SuitFont{Arial Unicode MS}[Scale=0.92]
+    }{%
+      \newfontfamily\SuitFont{Symbola}[Scale=0.92]
+    }%
+  }%
+}
+\usepackage{newunicodechar}
+\newunicodechar{♠}{{\SuitFont ♠}}
+\newunicodechar{♥}{{\SuitFont ♥}}
+\newunicodechar{♦}{{\SuitFont ♦}}
+\newunicodechar{♣}{{\SuitFont ♣}}
+\newcommand{\hand}[1]{{\normalfont #1}}
 \newcommand{\term}[2]{#1（\textit{#2}）}
 \newcommand{\todoitem}[1]{\textcolor{red!70!black}{[待补充：#1]}}
