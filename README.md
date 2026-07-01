@@ -25,12 +25,13 @@
 
 ```text
 .
-├── main.tex              # 主文档
-├── preamble.tex          # 宏包与样式
+├── main.tex              # 主文档（含完整前言）
+├── preamble.tex          # 宏包、样式与写作命令
 ├── references.bib        # 参考文献
 ├── chapters/             # 十章正文
 ├── figures/              # 图片目录
 ├── tables/               # 表格目录
+├── scripts/              # 辅助脚本（如牌面格式转换）
 └── README.md
 ```
 
@@ -47,14 +48,26 @@ xelatex main.tex
 
 在 TeXstudio、VS Code LaTeX Workshop 或 Overleaf 中，请将主文件设为 `main.tex`，编译引擎设为 XeLaTeX，参考文献后端设为 Biber。
 
-编译成功后生成 `main.pdf`。若 `main.pdf` 被阅读器占用导致无法覆盖，可使用 `-jobname=main_build` 输出到 `main_build.pdf`：
+编译成功后生成 `main.pdf`（当前完整书稿约 178 页）。若 `main.pdf` 被阅读器占用导致无法覆盖，请先关闭 PDF 阅读器后重新编译。
 
-```bash
-xelatex -jobname=main_build main.tex
-biber main_build
-xelatex -jobname=main_build main.tex
-xelatex -jobname=main_build main.tex
+## 手牌与牌面格式
+
+全书手牌、公共牌统一使用 `\hand{}` 命令排版，花色采用 Unicode 符号，例如：
+
+```latex
+\hand{A♠ 7♠}          % 底牌
+\hand{K♠ 9♠ 2♦}        % 翻牌
+\hand{A♠ 7♣ 2♦ rainbow} % 带牌面描述
+\hand{KQo}             % 抽象起手牌记法（无具体花色）
 ```
+
+`preamble.tex` 中定义：
+
+```latex
+\newcommand{\hand}[1]{\textrm{#1}}
+```
+
+批量转换脚本见 `scripts/convert_cards.py`（将字母花色记法转为 Unicode 格式）。
 
 ## 如何新增章节
 
@@ -83,11 +96,10 @@ xelatex -jobname=main_build main.tex
 
 较大表格可放入 `tables/` 后用 `\input{}` 引入。项目已加载 `booktabs`，推荐使用 `\toprule`、`\midrule`、`\bottomrule`。
 
-手牌与牌面建议使用 `\texttt{}` 排版，例如 `\texttt{AKo}`、`\texttt{A72 rainbow}`。花色符号（♠♣♦♥）在 XeLaTeX 下可直接使用。
-
 ## 写作与排版约定
 
-- 术语首次出现建议使用「中文解释 + 英文术语」，例如「起手牌范围（range）」。
+- 术语首次出现建议使用 `\term{中文}{英文}` 或「中文解释 + 英文术语」，例如「起手牌范围（range）」。
+- 手牌与公共牌使用 `\hand{}`，花色写作 ♠ ♥ ♦ ♣，多张牌之间用空格分隔。
 - 数学公式使用 `\[...\]` 或 `$...$`；百分号写作 `\%`。
 - `center` 环境内换行使用 `\\`。
 - 牌例建议记录：位置、有效筹码、翻前行动、公共牌、下注尺度、对手类型与复盘结论。
